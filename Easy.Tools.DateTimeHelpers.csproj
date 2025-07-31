@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
 	
 	<PackageId>Easy.Tools.DateTimeHelper</PackageId>
-	<Version>1.0.1</Version>
+	<Version>1.0.2</Version>
 	<Authors>Elmin Alirzayev</Authors>
 	<Company>Easy Code Tools</Company>
 	<Description>Provides extension methods for common DateTime calculations and conversions in .NET.</Description>
@@ -20,6 +20,11 @@
 
   </PropertyGroup>
 
-
+	<ItemGroup>
+		<None Include="README.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
