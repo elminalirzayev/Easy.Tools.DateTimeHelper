@@ -1,24 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	
-	<PackageId>Easy.Tools.DateTimeHelper</PackageId>
-	<Version>1.0.2</Version>
-	<Authors>Elmin Alirzayev</Authors>
-	<Company>Easy Code Tools</Company>
-	<Description>Provides extension methods for common DateTime calculations and conversions in .NET.</Description>
-	<PackageTags>datetime extensions dotnet datetime helpers date time calculations conversions</PackageTags>
-	<RepositoryUrl>https://github.com/elminalirzayev/Easy.Tools.DateTimeHelper</RepositoryUrl>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<PackageProjectUrl>https://github.com/elminalirzayev/Easy.Tools.DateTimeHelper</PackageProjectUrl>
-	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<TargetFrameworks>net8.0;net7.0;net6.0;netstandard2.0;netstandard2.1;net48;net47</TargetFrameworks>
+		<LangVersion>10.0</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<PackageId>Easy.Tools.DateTimeHelper</PackageId>
+		<Version>1.0.3</Version>
+		<Authors>Elmin Alirzayev</Authors>
+		<Company>Easy Code Tools</Company>
+		<Description>Provides extension methods for common DateTime calculations and conversions in .NET.</Description>
+		<PackageTags>datetime extensions dotnet datetime helpers date time calculations conversions</PackageTags>
+		<RepositoryUrl>https://github.com/elminalirzayev/Easy.Tools.DateTimeHelper</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/elminalirzayev/Easy.Tools.DateTimeHelper</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 
 
-  </PropertyGroup>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="README.md">
