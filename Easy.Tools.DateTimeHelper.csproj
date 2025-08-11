@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<!--<TargetFrameworks>net48</TargetFrameworks>-->
+		<TargetFrameworks>net9.0;net8.0;net7.0;net6.0;net48;net47;netstandard2.1;</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Deterministic + SourceLink -->
+		<Deterministic>true</Deterministic>
+		<DebugType>portable</DebugType>
+		<EmbedAllSources>true</EmbedAllSources>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<EnableSourceLink>true</EnableSourceLink>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+
+		<!-- Package Info -->
+		<Title>Easy.Tools.DateTimeHelper</Title>
+		<AssemblyTitle>Easy.Tools.DateTimeHelper</AssemblyTitle>
+		<AssemblyName>Easy.Tools.DateTimeHelper</AssemblyName>
+		<PackageId>Easy.Tools.DateTimeHelper</PackageId>
+		<Version>1.0.6</Version>
+		<Authors>Elmin Alirzayev</Authors>
+		<Company>Easy Code Tools</Company>
+		<Copyright>Copyright © Elmin Alirzayev 2025</Copyright>
+		<Description>Provides extension methods for common DateTime calculations and conversions in .NET.</Description>
+		<PackageTags>datetime extensions dotnet datetime helpers date time calculations conversions</PackageTags>
+		<RepositoryUrl>https://github.com/elminalirzayev/Easy.Tools.DateTimeHelper</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/elminalirzayev/Easy.Tools.DateTimeHelper</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>-</PackageReleaseNotes>
+
+		<!-- Build -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+		<LangVersion>10.0</LangVersion>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>
