@@ -76,7 +76,7 @@ namespace Easy.Tools.DateTimeHelpers.Extensions
 
             return age;
         }
-     
+
         /// <summary>
         /// Converts a DateTime to Unix timestamp (seconds since 1970-01-01 UTC).
         /// </summary>
@@ -99,7 +99,7 @@ namespace Easy.Tools.DateTimeHelpers.Extensions
             var unixStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             return unixStart.AddSeconds(unixTimestamp);
         }
-      
+
         /// <summary>
         /// Determines whether the given date falls on a weekend (Saturday or Sunday).
         /// </summary>
@@ -150,7 +150,7 @@ namespace Easy.Tools.DateTimeHelpers.Extensions
             int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
             return date.Date.AddDays(-diff);
         }
-      
+
         /// <summary>
         /// Returns the end date of the week containing the specified date.
         /// Week end is considered Sunday.
@@ -189,7 +189,7 @@ namespace Easy.Tools.DateTimeHelpers.Extensions
                 daysToSubtract = 7;
             return date.AddDays(-daysToSubtract);
         }
-       
+
         /// <summary>
         /// Returns the total number of whole weeks between two dates.
         /// </summary>
@@ -200,7 +200,7 @@ namespace Easy.Tools.DateTimeHelpers.Extensions
         {
             return (int)((toDate.Date - fromDate.Date).TotalDays / 7);
         }
-       
+
         /// <summary>
         /// Returns the start date of the month containing the specified date.
         /// Time is set to 00:00:00.
