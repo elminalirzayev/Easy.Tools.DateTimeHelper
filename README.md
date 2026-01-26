@@ -9,23 +9,20 @@
 
 # Easy.Tools.DateTimeHelper
 
-## Overview
-`Easy.Tools.DateTimeHelper` provides a set of extension methods for common and advanced `DateTime` operations in .NET. It simplifies working with dates by offering methods for age calculation, Unix timestamp conversions, date range checks, start/end of day/week/month retrieval, business day arithmetic, and more.
+**Easy.Tools.DateTimeHelper** is a lightweight, high-performance .NET library that extends the `DateTime` struct. It simplifies complex date operations such as age calculation, business day arithmetic, Unix timestamp conversion, and ISO 8601 week calculations.
 
 ## Features
-- Calculate exact age with years, months, and days
-- Calculate age in years with leap year (Feb 29) support
-- Convert `DateTime` to/from Unix timestamp
-- Check if a date is weekend or weekday
-- Get start and end of day, week, and month
-- Calculate total weeks between two dates
-- Add or subtract business days
-- Determine if a year is leap year
-- Compare dates ignoring time
-- Convert `DateTime` to specific time zones
-- Days until a target date
+
+- **Advanced Age Calculation:** Get age in years or detailed (Years, Months, Days).
+- **Business Days:** Add/Subtract workdays (automatically skips weekends).
+- **Time Travel:** Easily get Start/End of Day, Week, or Month.
+- **ISO 8601 Support:** Correctly calculates `WeeksInYear` (52 or 53 weeks).
+- **Unix Integration:** Convert to/from Unix Timestamps (Seconds).
+- **Time Zones:** Convert dates between specific Time Zones easily.
+- **Fluent API:** Check for `IsWeekend`, `IsLeapYear`, `IsBetween`, etc.
 
 ## Installation
+
 Install via NuGet Package Manager:
 
 ```bash
@@ -40,32 +37,102 @@ dotnet add package Easy.Tools.DateTimeHelper
 
 ## Usage Example
 
+
+### 1. Age Calculation
+
+Calculates age correctly, accounting for leap years.
+
 ```csharp
 using Easy.Tools.DateTimeHelper.Extensions;
 
-var birthDate = new DateTime(1990, 5, 15);
-var age = birthDate.CalculateAge(); // returns age in years
+var birthDate = new DateTime(1990, 5, 20);
 
-var detailedAge = birthDate.CalculateAgeDetailed(); // returns (years, months, days)
+// Simple Age
+int age = birthDate.CalculateAge(); // Output: 34
 
-var now = DateTime.Now;
-var startOfWeek = now.StartOfWeek();
-var endOfWeek = now.EndOfWeek();
-
-var unixTimestamp = now.ToUnixTimestamp();
-var dateFromUnix = DateTimeExtensions.FromUnixTimestamp(unixTimestamp);
-
-bool isWeekend = now.IsWeekend();
-bool isLeapYear = now.IsLeapYear();
-
-var nextMonday = now.NextWeekday(DayOfWeek.Monday);
+// Detailed Age
+var (years, months, days) = birthDate.CalculateAgeDetailed();
+Console.WriteLine($"You are {years} years, {months} months, and {days} days old.");
 ```
 
+### 2. Business Days (Workdays)
+
+Skip weekends when adding days.
+
+```csharp
+var friday = new DateTime(2023, 10, 6); // Friday
+
+// Add 3 business days (Skips Sat/Sun) -> Target is Wednesday
+var nextWednesday = friday.AddBusinessDays(3);
+```
+
+### 3. Start & End of Periods
+
+Useful for reporting and database queries.
+
+```csharp
+var now = DateTime.Now;
+
+var startOfDay   = now.StartOfDay();   // 2023-10-06 00:00:00
+var endOfDay     = now.EndOfDay();     // 2023-10-06 23:59:59.999
+
+var startOfWeek  = now.StartOfWeek();  // Monday of the current week
+var endOfWeek    = now.EndOfWeek();    // Sunday of the current week
+
+var startOfMonth = now.StartOfMonth(); // 1st day of month
+var endOfMonth   = now.EndOfMonth();   // Last day of month
+```
+
+### 4. Unix & Time Zones
+
+```csharp
+// Unix Timestamp
+long timestamp = DateTime.UtcNow.ToUnixTimestamp();
+DateTime myDate = DateTimeExtensions.FromUnixTimestamp(timestamp);
+
+// Time Zone Conversion
+var utcDate = DateTime.UtcNow;
+var estDate = utcDate.ConvertToTimeZone("Eastern Standard Time");
+```
+
+### 5. ISO 8601 Weeks
+
+Correctly handles years that have 53 weeks.
+
+```csharp
+var date = new DateTime(2020, 12, 31);
+int weeksInYear = date.WeeksInYear(); // Returns 53 for ISO 8601 compliance
+```
+
+### 6. Helper Predicates
+
+Correctly handles years that have 53 weeks.
+
+```csharp
+if (DateTime.Now.IsWeekend())
+{
+    Console.WriteLine("It's party time! ");
+}
+
+if (myDate.IsBetween(startDate, endDate))
+{
+    // Do something...
+}
+
+var nextFriday = DateTime.Now.NextWeekday(DayOfWeek.Friday);
+```
+
+---
+
 ## Contributing
+
 Contributions and suggestions are welcome. Please open an issue or submit a pull request.
 
+---
+
 ## License
-MIT License
+
+This project is licensed under the MIT License.
 
 ---
 
